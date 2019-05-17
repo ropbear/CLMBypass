@@ -1,16 +1,17 @@
 ﻿using System;
+using System.Runtime.InteropServices;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
-namespace CLMB
+
+namespace CLMBypass
 {
-    class Program
+    [ComVisible(true)]
+    public class CLMBypass
     {
-        static void Main(string[] args)
+        public void Main(string[] args)
         {
-
             System.Management.Automation.Runspaces.Runspace run = System.Management.Automation.Runspaces.RunspaceFactory.CreateRunspace();
             run.Open();
 
