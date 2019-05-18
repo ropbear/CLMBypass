@@ -7,6 +7,7 @@ Bypass Constrained Language Mode in PowerShell, based off of [SecJuice's](https:
 - **[C]** denots Constrained Language Mode bypass for 1809
 
 <hr></hr>
+
 ### CLMBypass.hta [A][C]
 - The WScript.Shell creates a new runspace
 - `payload.ps1` is downloaded and executed in FullLanguage mode
