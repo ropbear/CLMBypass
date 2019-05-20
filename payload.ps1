@@ -1,1 +1,2 @@
-gci env:* > C:\Users\RDPUser\Desktop\test.txt
+[System.Windows.MessageBox]::Show('test')
+[System.Windows.MessageBox]::Show($ExecutionContet.SessionState.LanguageMode)
